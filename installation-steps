@@ -1,0 +1,28 @@
+Refer Youtube Video : https://www.youtube.com/watch?v=9z67s1t8UgM
+
+
+sudo yum groupinstall -y 'development tools'
+sudo yum -y install python-pip python-devel
+sudo pip install setuptools --upgrade 
+pip install --upgrade pip
+sudo pip install ansible
+ansible --version
+sudo pip install boto
+sudo pip install boto3
+export AWS_ACCESS_KEY_ID='****************'
+export AWS_SECRET_ACCESS_KEY='*******************'
+export ANSIBLE_HOST_KEY_CHECKING=False
+/opt/aws
+ansible-playbook -i hosts ec2.yml
+ansible-playbook -i hosts terminateec2.yml
+/etc/ansible/
+wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.py
+wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.ini
+export ANSIBLE_HOSTS=/etc/ansible/ec2.py 
+export EC2_INI_PATH=/etc/ansible/ec2.ini 
+chmod 400 awsdemo.pem
+ssh -i awsdemo.pem ec2-user@18.208.146.115
+ssh-add ~/.ssh/awsdemo.pem
+ssh-add -l
+ansible -i ec2.py -u ec2-user tag_prod_web -m ping
+
